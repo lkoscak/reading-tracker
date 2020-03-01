@@ -21,16 +21,16 @@ namespace book_tracker.Controllers
             _context = context;
         }
 
-        // GET: api/Ratings
+        // GET: Ratings
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Rating>>> GetRatings()
         {
             return await _context.Ratings.ToListAsync();
         }
 
-        // GET: api/Ratings/5
+        // GET: Ratings/id
         [HttpGet("{id}")]
-        public async Task<ActionResult<Rating>> GetRating(int id)
+        public async Task<ActionResult<Rating>> GetRatingById(int id)
         {
             var rating = await _context.Ratings.FindAsync(id);
 
@@ -42,18 +42,22 @@ namespace book_tracker.Controllers
             return rating;
         }
 
-        // PUT: api/Ratings/5
+        // PUT: Ratings/id
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRating(int id, Rating rating)
         {
-            if (id != rating.RatingID)
+            var ratingToUpdate = await _context.Ratings.FindAsync(id);
+           
+            if (ratingToUpdate == null)
             {
                 return BadRequest();
             }
 
-            _context.Entry(rating).State = EntityState.Modified;
+            rating.RatingID = ratingToUpdate.RatingID;
+            _context.Entry(ratingToUpdate).CurrentValues.SetValues(rating);
+            _context.Ratings.Update(ratingToUpdate);
 
             try
             {
@@ -74,7 +78,7 @@ namespace book_tracker.Controllers
             return NoContent();
         }
 
-        // POST: api/Ratings
+        // POST: Ratings
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
@@ -86,7 +90,7 @@ namespace book_tracker.Controllers
             return CreatedAtAction("GetRating", new { id = rating.RatingID }, rating);
         }
 
-        // DELETE: api/Ratings/5
+        // DELETE: Ratings/id
         [HttpDelete("{id}")]
         public async Task<ActionResult<Rating>> DeleteRating(int id)
         {

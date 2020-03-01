@@ -21,18 +21,19 @@ namespace book_tracker.Controllers
             _context = context;
         }
 
-        // GET: api/Books
+        // GET: Books
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
         {
             return await _context.Books.Include(b => b.Author).Include(b => b.BookRatings).ToListAsync();
         }
 
-        // GET: api/Books/5
+        // GET: Books/id
         [HttpGet("{id}")]
-        public async Task<ActionResult<Book>> GetBook(int id)
+        public async Task<ActionResult<Book>> GetBookById(int id)
         {
-            var book = await _context.Books.FindAsync(id);
+            var query = _context.Books.Where(b => b.BookID == id).Include(b => b.Author).Include(b => b.BookRatings);
+            var book = await query.SingleAsync();
 
             if (book == null)
             {
@@ -48,12 +49,17 @@ namespace book_tracker.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBook(int id, Book book)
         {
-            if (id != book.BookID)
+            var bookToUpdate = await _context.Books.FindAsync(id);
+
+            if (bookToUpdate == null)
             {
                 return BadRequest();
             }
 
-            _context.Entry(book).State = EntityState.Modified;
+            book.BookID = bookToUpdate.BookID;
+            _context.Entry(bookToUpdate).CurrentValues.SetValues(book);
+
+            _context.Books.Update(bookToUpdate);
 
             try
             {
