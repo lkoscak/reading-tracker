@@ -1,0 +1,10 @@
+D:\Projekti\reading-tracker-API\book-tracker\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Projekti\reading-tracker-API\book-tracker\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Projekti\reading-tracker-API\book-tracker\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Projekti\reading-tracker-API\book-tracker\bin\Debug\netcoreapp3.1\book-tracker.exe
+D:\Projekti\reading-tracker-API\book-tracker\obj\Debug\netcoreapp3.1\book-tracker.csprojAssemblyReference.cache
+D:\Projekti\reading-tracker-API\book-tracker\obj\Debug\netcoreapp3.1\staticwebassets\book-tracker.StaticWebAssets.Manifest.cache
+D:\Projekti\reading-tracker-API\book-tracker\obj\Debug\netcoreapp3.1\staticwebassets\book-tracker.StaticWebAssets.xml
+D:\Projekti\reading-tracker-API\book-tracker\obj\Debug\netcoreapp3.1\book-tracker.AssemblyInfoInputs.cache
+D:\Projekti\reading-tracker-API\book-tracker\obj\Debug\netcoreapp3.1\book-tracker.AssemblyInfo.cs
+D:\Projekti\reading-tracker-API\book-tracker\obj\Debug\netcoreapp3.1\book-tracker.RazorTargetAssemblyInfo.cache
