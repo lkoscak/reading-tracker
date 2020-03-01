@@ -10,7 +10,8 @@ namespace book_tracker.Models
         public int RatingID { get; set; }
         public int Score { get; set; }
         public String Review {get;set;}
-        public DateTime DateOfReview { get; set; }
+
+        public int BookID { get; set; }
         
     }
 }

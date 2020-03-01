@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using book_tracker;
 
 namespace book_tracker.Migrations
 {
     [DbContext(typeof(ReadingContext))]
-    partial class ReadingContextModelSnapshot : ModelSnapshot
+    [Migration("20200301173353_Deleted_Date_field_from_Ratings")]
+    partial class Deleted_Date_field_from_Ratings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

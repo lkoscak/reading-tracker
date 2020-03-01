@@ -25,7 +25,7 @@ namespace book_tracker.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
         {
-            return await _context.Books.ToListAsync();
+            return await _context.Books.Include(b => b.Author).Include(b => b.BookRatings).ToListAsync();
         }
 
         // GET: api/Books/5
