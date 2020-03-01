@@ -80,6 +80,8 @@ namespace book_tracker.Controllers
         [HttpPost]
         public async Task<ActionResult<Book>> PostBook(Book book)
         {
+            var author = await _context.Authors.FindAsync(book.AuthorID);
+            book.Author = author;
             _context.Books.Add(book);
             await _context.SaveChangesAsync();
 

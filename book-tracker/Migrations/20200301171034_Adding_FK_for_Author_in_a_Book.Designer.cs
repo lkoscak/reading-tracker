@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using book_tracker;
 
 namespace book_tracker.Migrations
 {
     [DbContext(typeof(ReadingContext))]
-    partial class ReadingContextModelSnapshot : ModelSnapshot
+    [Migration("20200301171034_Adding_FK_for_Author_in_a_Book")]
+    partial class Adding_FK_for_Author_in_a_Book
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -17,5 +17,7 @@ namespace book_tracker.Models
 
         public Author Author { get; set; }
         public IEnumerable<Rating> BookRatings { get; set; }
+
+        public int AuthorID { get; set; }
     }
 }
